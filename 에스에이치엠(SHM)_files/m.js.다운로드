@@ -1,0 +1,69 @@
+var swiperM = new Swiper(".mySwiperM", {
+    speed: 2000,
+    slidesPerView: 3,
+    spaceBetween: 30,
+    autoplay: {
+        delay: 2000,
+        disableOnInteraction: false,
+    },
+});
+
+$('.main-banner-m').waypoint(function(direction) {
+    console.info("trigger count 01");
+    console.info(direction);
+    initCount01();
+}, { offset: '0' });
+
+
+$('.summary-m').waypoint(function(direction) {
+    console.info("trigger count 02");
+    console.info(direction);
+    initCount02();
+    initCount03();
+    initCount04();
+}, { offset: '300' });
+
+
+function initCount01(){
+    $(".count-info-01").countTo({
+        onUpdate: function (value) {
+            var counter=$(this).text();
+            $(this).text(counter.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
+        }
+    });
+}
+
+function initCount02(){
+    $(".count-info-02").countTo({
+        formatter: function (value, options) {
+            return value.toFixed(1);
+        }
+    });
+}
+
+function initCount02(){
+    $(".count-info-02").countTo({
+        formatter: function (value, options) {
+            return value.toFixed(1);
+        }
+    });
+}
+
+function initCount03(){
+    $(".count-info-03").countTo({
+        formatter: function (value, options) {
+            return value.toFixed(0);
+        }
+    });
+}
+
+function initCount04(){
+    $(".count-info-04").countTo({
+        onUpdate: function (value) {
+            var counter=$(this).text();
+            $(this).text(counter.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
+        }
+    });
+}
+
+
